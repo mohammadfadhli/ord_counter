@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">ORD Counter</string>
+    <string name="setting">Settings</string>
+    <string name="save">Save</string>
+    <string name="ord_date">ORD Date:</string>
+    <string name="leave_quota">Days of Leave:</string>
+    <string name="off_quota">Days OFF:</string>
+    <string name="payday_quota">Days to Payday:</string>
+    <string name="tenth">10th</string>
+    <string name="twelve">12th</string>
+    <string name="working_days">Working Days</string>
+    <string name="help">\?</string>
+    <string name="calc_ord_date">Calculate ORD Date</string>
+    <string name="days_to_ord">days to ORD</string>
+    <string name="enlistment_date">Enlistment Date:</string>
+    <string name="service_duration">Service Duration:</string>
+    <string name="two_years">2 Years</string>
+    <string name="one_year_ten_months">1 Year 10 Months</string>
+    <string name="calculate_ord_date">Calculate ORD Date</string>
+</resources>

@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Settings"
+    android:background="#152642">
+
+    <Button
+        android:id="@+id/savebutton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="@string/save"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/settings_leave_quota_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/leave_quota"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/settings_ord_label" />
+
+    <TextView
+        android:id="@+id/settings_off_quota_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/off_quota"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/settings_leave_quota_label" />
+
+    <TextView
+        android:id="@+id/settings_payday_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/payday_quota"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/settings_off_quota_label" />
+
+    <EditText
+        android:id="@+id/leave_quota_edittext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:ems="10"
+        android:hint="0"
+        android:textColorHint="@android:color/white"
+        android:backgroundTint="@android:color/white"
+        android:inputType="numberDecimal"
+        android:textColor="@android:color/white"
+        android:textSize="12sp"
+        app:layout_constraintStart_toEndOf="@+id/settings_leave_quota_label"
+        app:layout_constraintTop_toBottomOf="@+id/settings_ord_textview" />
+
+    <EditText
+        android:id="@+id/off_quota_edittext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginLeft="48dp"
+        android:ems="10"
+        android:hint="0"
+        android:textColorHint="@android:color/white"
+        android:backgroundTint="@android:color/white"
+        android:inputType="numberDecimal"
+        android:textColor="@android:color/white"
+        android:textSize="12sp"
+        app:layout_constraintStart_toEndOf="@+id/settings_off_quota_label"
+        app:layout_constraintTop_toBottomOf="@+id/leave_quota_edittext" />
+
+    <Button
+        android:id="@+id/set_ord_date_button"
+        android:layout_width="98dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:text="SET"
+        app:layout_constraintStart_toEndOf="@+id/settings_ord_textview"
+        app:layout_constraintTop_toBottomOf="@+id/set_enlistment_date_button" />
+
+    <TextView
+        android:id="@+id/settings_ord_textview"
+        android:layout_width="147dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
+        android:textColor="@android:color/white"
+        android:hint="DD/MM/YYYY"
+        android:textColorHint="@android:color/white"
+        app:layout_constraintStart_toEndOf="@+id/settings_ord_label"
+        app:layout_constraintTop_toBottomOf="@+id/settings_enlistment_date_textview" />
+
+    <TextView
+        android:id="@+id/settings_ord_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/ord_date"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/settings_enlistment_date_label" />
+
+    <RadioGroup
+        android:id="@+id/payday_radiogroup"
+        android:layout_width="158dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toEndOf="@+id/settings_payday_label"
+        app:layout_constraintTop_toBottomOf="@+id/off_quota_edittext">
+
+        <RadioButton
+            android:id="@+id/tenth_radiobutton"
+            android:layout_width="82dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:checked="true"
+            android:text="@string/tenth"
+            android:textColor="@android:color/white"
+            android:buttonTint="@android:color/white" />
+
+        <RadioButton
+            android:id="@+id/twelve_radiobutton"
+            android:layout_width="84dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/twelve"
+            android:textColor="@android:color/white"
+            android:buttonTint="@android:color/white" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/settings_enlistment_date_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="64dp"
+        android:text="@string/enlistment_date"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/settings_enlistment_date_textview"
+        android:layout_width="121dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="52dp"
+        android:textColor="@android:color/white"
+        android:hint="DD/MM/YYYY"
+        android:textColorHint="@android:color/white"
+        app:layout_constraintStart_toEndOf="@+id/settings_enlistment_date_label"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/set_enlistment_date_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="42dp"
+        android:text="SET"
+        app:layout_constraintStart_toEndOf="@+id/settings_enlistment_date_textview"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/settings_service_duration_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/service_duration"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/settings_payday_label" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="246dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toEndOf="@+id/settings_service_duration_label"
+        app:layout_constraintTop_toBottomOf="@+id/payday_radiogroup">
+
+        <RadioButton
+            android:id="@+id/twoyears_radiobutton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:checked="true"
+            android:text="@string/two_years"
+            android:textColor="@android:color/white"
+            android:buttonTint="@android:color/white" />
+
+        <RadioButton
+            android:id="@+id/oneyeartenmonths_radiobutton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/one_year_ten_months"
+            android:textColor="@android:color/white"
+            android:buttonTint="@android:color/white" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/calculate_ord_date_button"
+        android:layout_width="178dp"
+        android:layout_height="61dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/calculate_ord_date"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
