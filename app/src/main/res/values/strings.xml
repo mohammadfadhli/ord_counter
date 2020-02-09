@@ -8,13 +8,16 @@
     <string name="payday_quota">Days to Payday:</string>
     <string name="tenth">10th</string>
     <string name="twelve">12th</string>
-    <string name="working_days">Working Days</string>
+    <string name="working_days">Working days</string>
     <string name="help">\?</string>
     <string name="calc_ord_date">Calculate ORD Date</string>
     <string name="days_to_ord">days to ORD</string>
-    <string name="enlistment_date">Enlistment Date:</string>
-    <string name="service_duration">Service Duration:</string>
+    <string name="enlistment_date">Enlistment Date</string>
+    <string name="service_duration">Service Duration</string>
     <string name="two_years">2 Years</string>
     <string name="one_year_ten_months">1 Year 10 Months</string>
     <string name="calculate_ord_date">Calculate ORD Date</string>
+    <string name="percentage_label">to completion</string>
+    <string name="edit">Edit</string>
+    <string name="rate_dialog_message">If you enjoyed this app, would you mind taking a moment to rate it? It won\'t take more than a minute. Thanks for your support!</string>
 </resources>

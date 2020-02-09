@@ -6,25 +6,25 @@ import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.valdesekamdem.library.mdtoast.MDToast;
+
 import java.util.Calendar;
-
-import maes.tech.intentanim.CustomIntent;
-
 
 public class Settings extends AppCompatActivity {
 
-    Button savebutton;
-    Button setorddatebutton;
+    ImageButton savebutton;
+    ImageButton setorddatebutton;
     TextView settings_ord_date_textview;
     EditText leave_quota_edittext;
     EditText off_quota_edittext;
@@ -37,7 +37,7 @@ public class Settings extends AppCompatActivity {
     DatePickerDialog dpd;
     RadioButton tenth_radiobutton;
     RadioButton twelve_radiobutton;
-    Button setenlistmentdatebutton;
+    ImageButton setenlistmentdatebutton;
     TextView settings_enlistment_date_textview;
     RadioButton twoyears_radiobutton;
     RadioButton oneyeartenmonths_radiobutton;
@@ -77,6 +77,16 @@ public class Settings extends AppCompatActivity {
 
         final Dates date = new Dates(); //date class
         final Regex regex = new Regex(); //regex class
+
+        //For initial installion, there is no ord date/enlistment date
+        if(sharedPreferences.getString("orddate", "").equals("")){
+            settings_ord_date_textview.setText("DD/MM/YYYY");
+        }
+
+        if(sharedPreferences.getString("enlistmentdate", "").equals("")){
+            settings_enlistment_date_textview.setText("DD/MM/YYYY");
+        }
+
 
         //Check radio button according to user saved payday on SharedPreferences
         if(payday == 10){
@@ -140,6 +150,10 @@ public class Settings extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+                //Toastbox Variables
+                Context context = getApplicationContext();
+                int duration = Toast.LENGTH_SHORT;
+
                 date.enlistmentdate = settings_enlistment_date_textview.getText().toString();
                 if(twoyears_radiobutton.isChecked()){
                     servicedurationint = 730;
@@ -149,6 +163,9 @@ public class Settings extends AppCompatActivity {
                 }
                 date.serviceduration = servicedurationint;
                 settings_ord_date_textview.setText(date.calculateorddate());
+                MDToast mdToast = MDToast.makeText(context, "ORD Date successfully calculated!", duration, MDToast.TYPE_SUCCESS);
+                mdToast.show();
+
 
             }
         });
@@ -186,20 +203,27 @@ public class Settings extends AppCompatActivity {
 
                 //Toastbox Variables
                 Context context = getApplicationContext();
-                CharSequence text;
+                String text;
                 int duration = Toast.LENGTH_SHORT;
 
                 if(!regex.validateleavequota().equals("Passed.")) //if leave regex fails, show toast
                 {
+                    //text = regex.validateleavequota();
+                    //Toast toast = Toast.makeText(context, text, duration);
+                    //toast.show();
                     text = regex.validateleavequota();
-                    Toast toast = Toast.makeText(context, text, duration);
-                    toast.show();
+
+                    MDToast mdToast = MDToast.makeText(context, text, duration, MDToast.TYPE_ERROR);
+                    mdToast.show();
+
                 }
                 else if(!regex.validateoffquota().equals("Passed.")) //if leave regex fails, show toast
                 {
                     text = regex.validateoffquota();
-                    Toast toast = Toast.makeText(context, text, duration);
-                    toast.show();
+
+                    MDToast mdToast = MDToast.makeText(context, text, duration, MDToast.TYPE_ERROR);
+                    mdToast.show();
+
                 }
                 else{ //else save the settings
 
@@ -215,6 +239,9 @@ public class Settings extends AppCompatActivity {
                     Intent intent = new Intent(Settings.this, MainActivity.class);
                     startActivity(intent);
                     finish(); //ensures that the current activity is destroyed
+
+                    MDToast mdToast = MDToast.makeText(context, "Saved!", duration, MDToast.TYPE_SUCCESS);
+                    mdToast.show();
 
                 }
             }

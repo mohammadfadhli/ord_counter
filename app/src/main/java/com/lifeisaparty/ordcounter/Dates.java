@@ -35,11 +35,11 @@ public class Dates {
             Date datebefore = dateFormat.parse(currentdate);
 
             long diff = dateAfter.getTime() - datebefore.getTime();
-            return Long.toString(TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS)); //return days till ord in String format
+            return Long.toString(TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS));
 
         }
         catch(Exception e) {
-            return null;
+                return "0";
         }
 
     }
@@ -66,7 +66,7 @@ public class Dates {
         int percentagevalue = (numofdaysint * 100)/serviceduration;
 
         if(percentagevalue > 100 || percentagevalue < 0){
-            return 0;
+            return 100;
         }
         else
         {
@@ -100,7 +100,7 @@ public class Dates {
             return Integer.toString(workdays);
 
         } catch (Exception e){
-            return null;
+            return "0";
         }
 
     }

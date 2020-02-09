@@ -18,6 +18,9 @@ public class Regex {
             c = "Passed.";
 
         }
+        else if(leavequota.equals("")){
+            c = "Leave Quota cannot be empty!";
+        }
         else{
 
             c = "Leave Quota must be between 0 to 14 and mutiples of 5!";
@@ -34,6 +37,9 @@ public class Regex {
 
             c = "Passed.";
 
+        }
+        else if(offquota.equals("")){
+            c = "Off Quota cannot be empty!";
         }
         else
         {
