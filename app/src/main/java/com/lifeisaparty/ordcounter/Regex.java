@@ -23,7 +23,7 @@ public class Regex {
         }
         else{
 
-            c = "Leave Quota must be between 0 to 14 and mutiples of 5!";
+            c = "Leave Quota must be between 0 to 14 and mutiples of 5! Changes not Saved!";
         }
 
         return c;
@@ -43,7 +43,7 @@ public class Regex {
         }
         else
         {
-            c = "Off Quota must be between 0 to 30 and mutiples of 5!";
+            c = "Off Quota must be between 0 to 30 and mutiples of 5! Changes not Saved!";
         }
 
         return c;

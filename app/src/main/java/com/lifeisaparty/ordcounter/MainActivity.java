@@ -1,15 +1,16 @@
 package com.lifeisaparty.ordcounter;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.ActivityNotFoundException;
+import androidx.appcompat.app.AppCompatDelegate;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.net.Uri;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import java.io.BufferedReader;
@@ -37,11 +38,32 @@ public class MainActivity extends AppCompatActivity {
     CircularSeekBar seekBar;
     int serviceduration;
     TextView percentage_textview;
-    ImageButton rate_app_button;
-    TextView percentage_label;
+    TextView ord_countdown_label;
+    Boolean isnightmodeon;
+    int versionCode = 0;
+    Boolean firstrun;
+    TextView payday_label;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        //Use sharedpreferences to read user data
+        final SharedPreferences sharedPreferences = getSharedPreferences("MySharedPref", MODE_PRIVATE);
+        final SharedPreferences.Editor editor = sharedPreferences.edit();
+
+        //Check if Night Mode is on from sharedpreferences
+        isnightmodeon = sharedPreferences.getBoolean("isnightmodeon", false);
+
+        //Night Mode
+        if(isnightmodeon.equals(false))
+        {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        }
+        else if(isnightmodeon.equals(true))
+        {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+        }
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -75,21 +97,51 @@ public class MainActivity extends AppCompatActivity {
         working_days_textview = findViewById(R.id.working_days_textview);
         seekBar = findViewById(R.id.seekBar);
         percentage_textview = findViewById(R.id.percentage_textview);
-        rate_app_button = findViewById(R.id.rate_app_button);
-        percentage_label = findViewById(R.id.percentage_label);
+        ord_countdown_label = findViewById(R.id.ord_countdown_label);
+        payday_label = findViewById(R.id.payday_label);
 
         //Disable user interaction on seekbar
         seekBar.isTouchEnabled = false;
-
-        //Use sharedpreferences to read user data
-        SharedPreferences sharedPreferences = getSharedPreferences("MySharedPref", MODE_PRIVATE);
 
         orddate = sharedPreferences.getString("orddate", "");
         leavequota = sharedPreferences.getString("leavequota", "");
         offquota = sharedPreferences.getString("offquota", "");
         payday = sharedPreferences.getInt("payday", 10);
+        firstrun = sharedPreferences.getBoolean("firstrun", true);
+
+        //Show Changelog for Updates
+        try{
+            PackageInfo packageinfo = getPackageManager().getPackageInfo(getPackageName(), 0);
+            versionCode = packageinfo.versionCode;
+        }
+        catch (PackageManager.NameNotFoundException e){
+            e.printStackTrace();
+        }
+
+        if(versionCode == 7 && firstrun.equals(true))
+        {
+            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(MainActivity.this);
+            alertDialogBuilder.setMessage("1. BRAND NEW! User Interface \n2. Settings now auto-saves \n3. Toggle Light/Dark Mode \n4. Bugs Fixes")
+                    .setTitle("What's New in v7.0")
+                    .setCancelable(true)
+                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    });
+            AlertDialog alertDialog = alertDialogBuilder.create();
+            alertDialog.setCanceledOnTouchOutside(true);
+            alertDialog.show();
+            editor.putBoolean("firstrun", false);
+            editor.apply();
+        }
 
         if(orddate.equals("")){ //For initial installion, there is no ord date in textview
+            ord_date_textview.setText("NIL");
+        }
+        else if(orddate.equals("DD/MM/YYYY"))
+        {
             ord_date_textview.setText("NIL");
         }
         else{
@@ -108,11 +160,11 @@ public class MainActivity extends AppCompatActivity {
         /*
             Get Serviceduration to update Seek Bar
         */
-        if(sharedPreferences.getString("serviceduration", "").equals("2 YEARS")){
+        if(sharedPreferences.getString("serviceduration", "2 YEARS").equals("2 YEARS")){
             serviceduration = 730;
             date.serviceduration = serviceduration;
         }
-        else if(sharedPreferences.getString("serviceduration", "").equals("1 YEAR 10 MONTHS")){
+        else if(sharedPreferences.getString("serviceduration", "2 YEARS").equals("1 YEAR 10 MONTHS")){
             serviceduration = 669;
             date.serviceduration = serviceduration;
         }
@@ -121,13 +173,14 @@ public class MainActivity extends AppCompatActivity {
             seekBar.setProgress(0);
             percentage_textview.setText("0%");
         }
+        else if(orddate.equals("DD/MM/YYYY"))
+        {
+            seekBar.setProgress(0);
+            percentage_textview.setText("0%");
+        }
         else{
             seekBar.setProgress(date.percentageofdays());
             percentage_textview.setText(Integer.toString(date.percentageofdays()) + "%");
-            if(date.percentageofdays() == 100 )
-            {
-                percentage_label.setText("Completed");
-            }
         }
 
         //For initial installion, there is no leavequota/offquota in textview
@@ -139,21 +192,35 @@ public class MainActivity extends AppCompatActivity {
             off_quota_textview.setText("0");
         }
 
-        if(Integer.parseInt(date.daystillord()) <= 0 && !orddate.equals("")){
+        //Display "ORDLO" if daystillsord <=0, orddate is not empty and orddate not equal to "DD/MM/YYYY"
+        if(Integer.parseInt(date.daystillord()) <= 0 && !orddate.equals("") && !orddate.equals("DD/MM/YYYY")){
             ord_countdown_textview.setText("ORDLO!");
-            ord_countdown_textview.setTextSize(40);
+            ord_countdown_label.setText("Where got time NS");
         }
         else{
             ord_countdown_textview.setText(date.daystillord());
         }
 
-        payday_textview.setText(date.daystillpayday());
-        if(leavequota == "")
+        if(date.daystillpayday().equals("0"))
+        {
+            payday_textview.setText("TODAY");
+            payday_label.setText("is Payday!");
+        }
+        else if(date.daystillpayday().equals("1"))
+        {
+            payday_textview.setText(date.daystillpayday() + " day");
+        }
+        else
+        {
+            payday_textview.setText(date.daystillpayday() + " days");
+        }
+
+        if(leavequota.equals(""))
         {
             leavequota = "0";
         }
 
-        if(offquota == "")
+        if(offquota.equals(""))
         {
             offquota = "0";
         }
@@ -177,22 +244,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-        //Open App Page when Rate me button is clicked
-        rate_app_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                try {
-                    startActivity(new Intent(Intent.ACTION_VIEW,
-                            Uri.parse("market://details?id=" + getPackageName())));
-                } catch (ActivityNotFoundException e) {
-                    startActivity(new Intent(Intent.ACTION_VIEW,
-                            Uri.parse("http://play.google.com/store/apps/details?id=" + getPackageName())));
-                }
-            }
-        });
-
     }
+
+
+
+
+
 
 
 
