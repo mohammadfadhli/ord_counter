@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#242222</color>
+    <color name="colorPrimaryDark">#242222</color>
+    <color name="colorAccent">#242222</color>
+
+    <color name="mainBackground">#303030</color>
+    <color name="mainBackgroundcard">#424242</color>
+    <color name="settingsBackgroundcard">#424242</color>
+    <color name="circlecolor">#424242</color>
+</resources>
