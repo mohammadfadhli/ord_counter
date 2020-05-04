@@ -178,6 +178,11 @@ public class MainActivity extends AppCompatActivity {
             seekBar.setProgress(0);
             percentage_textview.setText("0%");
         }
+        else if(Integer.parseInt(date.daystillord()) > 730) //if user has not enlisted but downloaded the app for future reference
+        {
+            seekBar.setProgress(0);
+            percentage_textview.setText("0%");
+        }
         else{
             seekBar.setProgress(date.percentageofdays());
             percentage_textview.setText(Integer.toString(date.percentageofdays()) + "%");
@@ -197,6 +202,11 @@ public class MainActivity extends AppCompatActivity {
             ord_countdown_textview.setText("ORDLO!");
             ord_countdown_label.setText("Where got time NS");
         }
+        else if(Integer.parseInt(date.daystillord()) == 1 && !orddate.equals("") && !orddate.equals("DD/MM/YYYY")) //if days till ord == 1, String should be singular
+        {
+            ord_countdown_textview.setText(date.daystillord());
+            ord_countdown_label.setText("Day to ORD");
+        }
         else{
             ord_countdown_textview.setText(date.daystillord());
         }
@@ -204,7 +214,7 @@ public class MainActivity extends AppCompatActivity {
         if(date.daystillpayday().equals("0"))
         {
             payday_textview.setText("TODAY");
-            payday_label.setText("is Payday!");
+            payday_label.setText("is Payday");
         }
         else if(date.daystillpayday().equals("1"))
         {
