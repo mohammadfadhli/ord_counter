@@ -43,6 +43,9 @@ public class MainActivity extends AppCompatActivity {
     int versionCode = 0;
     Boolean firstrun;
     TextView payday_label;
+    Boolean firstreminder;
+    Boolean secondreminder;
+    Boolean thirdreminder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
 
         //Rate App Dialog
         AppRate.with(this)
-                .setInstallDays(1)
+                .setInstallDays(5)
                 .setLaunchTimes(2)
                 .setRemindInterval(2)
                 .setShowLaterButton(true)
@@ -108,6 +111,9 @@ public class MainActivity extends AppCompatActivity {
         offquota = sharedPreferences.getString("offquota", "");
         payday = sharedPreferences.getInt("payday", 10);
         firstrun = sharedPreferences.getBoolean("firstrun", true);
+        firstreminder = sharedPreferences.getBoolean("firstreminder", true);
+        secondreminder = sharedPreferences.getBoolean("secondreminder", true);
+        thirdreminder = sharedPreferences.getBoolean("thirdreminder", true);
 
         //Show Changelog for Updates
         try{
@@ -122,7 +128,7 @@ public class MainActivity extends AppCompatActivity {
         {
             AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(MainActivity.this);
             alertDialogBuilder.setMessage("1. BRAND NEW! User Interface \n2. Settings now auto-saves \n3. Toggle Light/Dark Mode \n4. Bugs Fixes")
-                    .setTitle("What's New in v7.0")
+                    .setTitle("What's New in v6.1.0")
                     .setCancelable(true)
                     .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                         @Override
@@ -243,6 +249,69 @@ public class MainActivity extends AppCompatActivity {
         else
         {
             working_days_textview.setText(Float.toString(workingdayscalc));
+        }
+
+        //First reminder
+        if(Integer.parseInt(date.daystillord()) <= 180 && Integer.parseInt(date.daystillord()) > 90 && firstreminder.equals(true) && firstrun.equals(false))
+        {
+            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(MainActivity.this);
+            alertDialogBuilder.setMessage("Congratulations! You are going to ORD in less than 6 months (" + orddate + "). As such, you are required to complete the ORD quiz in" +
+                    " 'Prepare for ORNS' eService in NS Portal as part of your ORD package. You are also to clear any outstanding FFIs, Leaves/OFFs. For any enquiries, please seek your unit S1 for" +
+                    " assistance.")
+                    .setTitle("First Reminder")
+                    .setCancelable(true)
+                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    });
+            AlertDialog alertDialog = alertDialogBuilder.create();
+            alertDialog.setCanceledOnTouchOutside(true);
+            editor.putBoolean("firstreminder", false);
+            editor.apply();
+            alertDialog.show();
+        }
+
+        //Second Reminder
+        if(Integer.parseInt(date.daystillord()) <= 90 && Integer.parseInt(date.daystillord()) > 30 && secondreminder.equals(true) && firstrun.equals(false))
+        {
+            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(MainActivity.this);
+            alertDialogBuilder.setMessage("Hang in there! You are going to ORD in less than 3 months (" + orddate + "). Have you completed your ORD quiz & FFIs? Don't forget" +
+                    " to clear your Leaves and OFFs!")
+                    .setTitle("Second Reminder")
+                    .setCancelable(true)
+                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    });
+            AlertDialog alertDialog = alertDialogBuilder.create();
+            alertDialog.setCanceledOnTouchOutside(true);
+            editor.putBoolean("secondreminder", false);
+            editor.apply();
+            alertDialog.show();
+        }
+
+        //Third Reminder
+        if(Integer.parseInt(date.daystillord()) <= 30 && Integer.parseInt(date.daystillord()) > 0 && thirdreminder.equals(true) && firstrun.equals(false))
+        {
+            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(MainActivity.this);
+            alertDialogBuilder.setMessage("You are nearly there! This will be our last reminder to you. Please complete your ORD quiz & FFIs if you have not done so.")
+                    .setTitle("Last Reminder")
+                    .setCancelable(true)
+                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    });
+            AlertDialog alertDialog = alertDialogBuilder.create();
+            alertDialog.setCanceledOnTouchOutside(true);
+            editor.putBoolean("thirdreminder", false);
+            editor.apply();
+            alertDialog.show();
         }
 
         //Open Settings on settings button click

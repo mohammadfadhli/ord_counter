@@ -374,7 +374,7 @@
             android:layout_marginBottom="16dp"
             app:circle_color="@color/circlecolor"
             app:circle_progress_color="#00FF1F"
-            app:circle_stroke_width="5dp"
+            app:circle_stroke_width="4dp"
             app:layout_constraintBottom_toTopOf="@+id/linearLayout"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -385,6 +385,7 @@
             app:progress="56" />
 
         <LinearLayout
+            android:id="@+id/linearLayout2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
