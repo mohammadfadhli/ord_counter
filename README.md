@@ -1,5 +1,8 @@
 ## Version 4.0 caa 15/12/2019
 
+*ORD Counter is LIVE!*
+Download Link: https://play.google.com/store/apps/details?id=com.lifeisaparty.ordcounter
+
 **Updates:**
 * Added Payday Counter
 * Changed background colour to fit dark mode (#152642)
