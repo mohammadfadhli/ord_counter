@@ -1,7 +1,15 @@
 ## Version 4.0 caa 15/12/2019
 
-*ORD Counter is LIVE!*
-Download Link: https://play.google.com/store/apps/details?id=com.lifeisaparty.ordcounter
+## General info
+ORD Counter is a minimal designed Operationally Ready Date (ORD) Countdown application for Singapore's Full-Time National Servicemen. Its main features include an ORD date calculator, ORD date countdown, Leave/OFF quota manager, and Payday countdown.
+	
+## Technologies
+Project is created with:
+* Java
+* Android Studio
+
+## Google Play Store Link
+https://play.google.com/store/apps/details?id=com.lifeisaparty.ordcounter
 
 **Updates:**
 * Added Payday Counter
@@ -21,15 +29,6 @@ Download Link: https://play.google.com/store/apps/details?id=com.lifeisaparty.or
 * Added Working days
 * Cleaned Code
 
-**Features to add:**
-* Side Navigation Bar
-* IPPT Tracker (?)
-* Fieldcamp/exercises countdown
-
-**Bugs to fix:**
-* Input validation **(IMPORTANT)**
-* Need to change transition effect from settings back to main activity
-
-**Bugs fixed:**
+## Bugs fixed
 * Disallowed backup in Manifest.xml as it was affecting reinstallation
 * Resized Logo down to below 2048x2048 due to hardware acceleration not displaying imageview correctly
