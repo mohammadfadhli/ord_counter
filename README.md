@@ -5,8 +5,8 @@ ORD Counter is a minimal designed ORD Countdown **Android application** for Sing
   <img src="https://play-lh.googleusercontent.com/KrWtlVObe0-P3ginQMGvoqrwKEvbrwyCZpnCWqgZ2vcR0cdqV-N5CO9L8bfq4D-U2M0=w240-h480-rw">
 </p>
 
-<img height=500 src="https://play-lh.googleusercontent.com/aVdDxay_GqVcPAG9RxPBOPtC92sC6ZxBuTfiQR4rtqWKxMGm_QAgkeRXADIozV5Z_g=w2560-h1440-rw">
-<img height=500 src="https://play-lh.googleusercontent.com/xFrtNqxNiUGOe2mtVEntXuVVF0CoNQywZiQwjTz8U6_Ia19FUhqfsZkVZKqrDRMtl_1F=w2560-h1440-rw">
+<a><img height=500 src="https://play-lh.googleusercontent.com/aVdDxay_GqVcPAG9RxPBOPtC92sC6ZxBuTfiQR4rtqWKxMGm_QAgkeRXADIozV5Z_g=w2560-h1440-rw">
+<img height=500 src="https://play-lh.googleusercontent.com/xFrtNqxNiUGOe2mtVEntXuVVF0CoNQywZiQwjTz8U6_Ia19FUhqfsZkVZKqrDRMtl_1F=w2560-h1440-rw"></a>
 
 
 https://play-lh.googleusercontent.com/aVdDxay_GqVcPAG9RxPBOPtC92sC6ZxBuTfiQR4rtqWKxMGm_QAgkeRXADIozV5Z_g=w2560-h1440-rw
