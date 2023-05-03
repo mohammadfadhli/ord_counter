@@ -24,3 +24,6 @@ You can download the application from the following link:
 
 ## Requirements
 * Android version 4.0.3 and up
+
+## Disclaimer
+This source code is provided for educational and non-commercial purposes only. You are not permitted to use this code for any commercial purposes without prior written permission from the author.
