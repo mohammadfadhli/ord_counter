@@ -3,6 +3,10 @@ ORD Counter is a minimal designed ORD Countdown **Android application** for Sing
 
 ![alt text](https://play-lh.googleusercontent.com/KrWtlVObe0-P3ginQMGvoqrwKEvbrwyCZpnCWqgZ2vcR0cdqV-N5CO9L8bfq4D-U2M0=w240-h480-rw)
 
+<p align="center">
+  <img width="600" height="200" src="https://play-lh.googleusercontent.com/KrWtlVObe0-P3ginQMGvoqrwKEvbrwyCZpnCWqgZ2vcR0cdqV-N5CO9L8bfq4D-U2M0=w240-h480-rw">
+</p>
+
 ## Features
 * ORD date calculator
 * ORD date countdown
