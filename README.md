@@ -14,7 +14,7 @@ Project is created with:
 
 ## Installation
 You can download the application from the following link:
-https://play.google.com/store/apps/details?id=com.lifeisaparty.ordcounter
+* https://play.google.com/store/apps/details?id=com.lifeisaparty.ordcounter
 
 ## Requirements
 * Android version 4.0.3 and up
