@@ -1,5 +1,6 @@
-## General info
 <img src="https://play-lh.googleusercontent.com/KrWtlVObe0-P3ginQMGvoqrwKEvbrwyCZpnCWqgZ2vcR0cdqV-N5CO9L8bfq4D-U2M0=w240-h480-rw">
+
+## General info
 ORD Counter is a minimal designed ORD Countdown **Android application** for Singapore's Full-Time National Servicemen.
 
 ## Screenshots
