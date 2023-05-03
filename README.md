@@ -1,5 +1,3 @@
-## Version 4.0 caa 15/12/2019
-
 ## General info
 ORD Counter is a minimal designed Operationally Ready Date (ORD) Countdown application for Singapore's Full-Time National Servicemen. Its main features include an ORD date calculator, ORD date countdown, Leave/OFF quota manager, and Payday countdown.
 	
