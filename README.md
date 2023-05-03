@@ -1,5 +1,5 @@
 ## General info
-ORD Counter is a minimal designed ORD Countdown Android application for Singapore's Full-Time National Servicemen.
+ORD Counter is a minimal designed ORD Countdown **Android application** for Singapore's Full-Time National Servicemen.
 
 ## Features
 * ORD date calculator
