@@ -9,6 +9,7 @@
   <p align="center">
     A minimal designed Operationally Ready Date (ORD) Countdown application for our Full-time National Servicemen (NSFs)
     <br />
+	  <br />
     <a href="https://play.google.com/store/apps/details?id=com.lifeisaparty.ordcounter&hl=en_SG&gl=US"><strong>Google Play »</strong></a>
   </p>
 </div>
