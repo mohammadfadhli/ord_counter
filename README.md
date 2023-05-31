@@ -1,8 +1,19 @@
 ## ORD Counter
 <img src="https://play-lh.googleusercontent.com/KrWtlVObe0-P3ginQMGvoqrwKEvbrwyCZpnCWqgZ2vcR0cdqV-N5CO9L8bfq4D-U2M0=w240-h480-rw">
 
-## General info
-ORD Counter is a minimal designed ORD Countdown **Android application** for Singapore's Full-Time National Servicemen.
+<div align="center">
+  <a href="">
+    <img src="https://play-lh.googleusercontent.com/KrWtlVObe0-P3ginQMGvoqrwKEvbrwyCZpnCWqgZ2vcR0cdqV-N5CO9L8bfq4D-U2M0=w240-h480-rw" alt="Logo" width="80" height="80">
+  </a>
+
+  <h3 align="center">ORD Counter</h3>
+
+  <p align="center">
+    A minimal designed Operationally Ready Date (ORD) Countdown application for our Full-time National Servicemen (NSFs)
+    <br />
+    <a href="https://play.google.com/store/apps/details?id=com.lifeisaparty.ordcounter&hl=en_SG&gl=US"><strong>Google Play »</strong></a>
+  </p>
+</div>
 
 ## Screenshots
 <a><img height=500 src="https://play-lh.googleusercontent.com/aVdDxay_GqVcPAG9RxPBOPtC92sC6ZxBuTfiQR4rtqWKxMGm_QAgkeRXADIozV5Z_g=w2560-h1440-rw"> <img height=500 src="https://play-lh.googleusercontent.com/xFrtNqxNiUGOe2mtVEntXuVVF0CoNQywZiQwjTz8U6_Ia19FUhqfsZkVZKqrDRMtl_1F=w2560-h1440-rw"></a>
