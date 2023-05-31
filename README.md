@@ -1,6 +1,6 @@
 <div align="center">
   <a href="">
-    <img src="https://play-lh.googleusercontent.com/KrWtlVObe0-P3ginQMGvoqrwKEvbrwyCZpnCWqgZ2vcR0cdqV-N5CO9L8bfq4D-U2M0=w240-h480-rw" alt="Logo" width="300" height="300">
+    <img src="https://play-lh.googleusercontent.com/KrWtlVObe0-P3ginQMGvoqrwKEvbrwyCZpnCWqgZ2vcR0cdqV-N5CO9L8bfq4D-U2M0=w240-h480-rw" alt="Logo" width="100" height="100">
   </a>
 
   <h3 align="center">ORD Counter</h3>
